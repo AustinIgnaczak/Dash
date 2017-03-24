@@ -9,9 +9,17 @@ module.exports = function(sequelize, DataTypes){
             }
         },
 		password: DataTypes.STRING,
-		first: DataTypes.STRING,
-		last: DataTypes.STRING,
-		email: DataTypes.STRING
+		{
+			classMethods: {
+				associate: function(models){
+					User.hasOne(models.Info,{
+						onDelete: "cascade"
+					});
+				}
+			}
+		}
 	});
 	return User;
 }
+
+
