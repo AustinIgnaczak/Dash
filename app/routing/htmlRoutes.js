@@ -16,7 +16,25 @@ module.exports = function(app){
 			    }).then(function(dbUser) {
 			      // We have access to the new todo as an argument inside of the callback function
 			      res.json(dbUser);
+			    }).catch(function(err){
+			    	res.send(err.errors[0].message);
 			    });
+			});
+		});
+	});
+
+	app.post('/login', function(req, res){
+		db.User.findOne({
+			where: {username: req.body.username}
+		}).then(function(dbUser){
+			bcrypt.compare(req.body.password, dbUser.password, function(err, result) {
+				if(result) {
+					console.log("authorized user");
+					res.send('authorized');
+				} else {
+					console.log("not an authorized user");
+					res.send('not authorized');
+				}
 			});
 		});
 	});
