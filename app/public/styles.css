@@ -239,25 +239,25 @@ a img{
   text-decoration: none;
 }
 
-.dash-wear {
+.dash-plane {
   display: inline-block;
   width: 160px;
   margin-right: 32px;
 }
 
-  .dash-wear .dash-screen-image {
-    width: 40%;
-    z-index: 1;
+  .dash-plane .dash-screen-image {
+    width: 150px;
+   height: 150px;
   }
 
 
-.dash-phone {
+.dash-bed {
   display: inline-block;
   width: 64px;
   margin-right: 48px;
 }
 
-  .dash-phone .dash-screen-image {
+  .dash-bed .dash-screen-image {
     width: 100%;
     z-index: 1;
   }
@@ -305,14 +305,14 @@ a img{
   }
 
 
-.dash-wear-section {
+.dash-plane-section {
   position: relative;
-  background: url('images/wear.png') center top no-repeat;
+  background: url('images/plane.png') center top no-repeat;
   background-size: cover;
   height: 800px;
 }
 
-.dash-wear-band {
+.dash-plane-band {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -320,7 +320,7 @@ a img{
   background-color: #37474f;
 }
 
-.dash-wear-band-text {
+.dash-plane-band-text {
   max-width: 800px;
   margin-left: 25%;
   padding: 24px;
@@ -328,7 +328,7 @@ a img{
   color: white;
 }
 
-  .dash-wear-band-text p {
+  .dash-plane-band-text p {
     padding-top: 8px;
   }
 
@@ -378,7 +378,13 @@ a img{
   }
 
 .dash-customized-section-image {
-  background: url('images/devices.jpg') center top no-repeat;
+  background: url('images/icons.png') center top no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.dash-section-image2 {
+  background: url('images/map3.jpg') center top no-repeat;
   background-size: cover;
   height: 400px;
 }
@@ -538,7 +544,7 @@ a img{
     display: none;
   }
 
-  .dash-wear-band-text {
+  .dash-plane-band-text {
     margin-left: 0;
     padding: 16px;
   }
