@@ -7,15 +7,30 @@ module.exports = function(app){
 		bcrypt.genSalt(10, function(err, salt) {
 			bcrypt.hash(req.body.password, salt, function(err, hash) {
 				// insertion into MySQL
-			    db.User.create({
-			      username: req.body.username,
-			      password: hash 
-			    }).then(function(dbUser) {
-			      // We have access to the new todo as an argument inside of the callback function
-			      res.redirect('/');
-			    }).catch(function(err){
-			    	res.send(err.errors[0].message);
-			    });
+				return db.sequelize.transaction(function (t) {
+
+				  // chain all your queries here. make sure you return them.
+				  return db.User.create({
+				    username: req.body.username,
+				    password: hash
+				  }, {transaction: t}).then(function (user) {
+				    return db.Info.create({
+				      first: req.body.first,
+				      last: req.body.last,
+				      email: req.body.email,
+				      UserId: user.id
+				    }, {transaction: t});
+				  });
+
+				}).then(function (result) {
+				  // Transaction has been committed
+				  // result is whatever the result of the promise chain returned to the transaction callback
+				  res.redirect('/');
+				}).catch(function (err) {
+				  // Transaction has been rolled back
+				  // err is whatever rejected the promise chain returned to the transaction callback
+				  res.send(err);
+				});
 			});
 		});
 	});
