@@ -107,12 +107,12 @@
 
 
    <table>
-      <tr><td>Flight Search</td><td>Numeric Text Field</td><td>Disabled Text Field</td></tr>
+      <tr><td>Destination</td><td>Budget</td></tr>
       <tr><td> 
          <form action="#">
             <div class="mdl-textfield mdl-js-textfield">
                <input class="mdl-textfield__input" type="text" id="text1">
-               <label class="mdl-textfield__label" for="text1">Text...</label>
+               <label id="destination" class="mdl-textfield__label" for="text1">destination or leave blank for any...</label>
             </div>
           </form>
 	  </td>
@@ -120,51 +120,57 @@
          <form action="#">
             <div class="mdl-textfield mdl-js-textfield">
                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="text2">
-               <label class="mdl-textfield__label" for="text2">Number...</label>
+               <label id="budget" class="mdl-textfield__label" for="text2">budget...</label>
 			   <span class="mdl-textfield__error">Number required!</span>
             </div>
           </form>
 	  </td>
-      <td>
-         <form action="#">
-            <div class="mdl-textfield mdl-js-textfield">
-               <input class="mdl-textfield__input" type="text" id="text3" disabled>
-               <label class="mdl-textfield__label" for="text3">Disabled...</label>
-            </div>
-          </form>
-	   </td>
       </tr>
-	  <tr><td>Simple Text Field with Floating Label</td><td>Numeric Text Field with Floating Label</td><td> </td></tr>
+	  <tr><td>Outbound Date</td><td>Inbound Date</td><td> </td></tr>
       <tr><td> 
          <form action="#">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                <input class="mdl-textfield__input" type="text" id="text4">
-               <label class="mdl-textfield__label" for="text4">Text...</label>
+               <label id="outbound" class="mdl-textfield__label" for="text4">01/01/2017 date...</label>
             </div>
           </form>
 	  </td>
       <td>
          <form action="#">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-               <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="text5">
-               <label class="mdl-textfield__label" for="text5">Number...</label>
-			   <span class="mdl-textfield__error">Number required!</span>
+               <input id="inbound" class="mdl-textfield__input" type="text" id="text4">
+               <label class="mdl-textfield__label" for="text4">01/01/2017 date...</label>
             </div>
           </form>
 	  </td>
       <td> </td>
       </tr>
-      <tr><td>Multiline Text Field</td><td>Expandable Multiline Text Field</td><td> </td></tr>
+      <tr><td>Adult(s)</td><td>Children</td><td> Infant(s)</td></tr>
       <tr><td> 
          <form action="#">
             <div class="mdl-textfield mdl-js-textfield">
-               <textarea class="mdl-textfield__input" type="text" rows= "3" id="text7" ></textarea>
-               <label class="mdl-textfield__label" for="text7">Lines...</label>
+               <input id="adult" class="mdl-textfield__input" type="text" rows= "3" id="text7" ></textarea>
+               <label class="mdl-textfield__label" for="text7">number of adults...</label>
             </div>
           </form>
 	  </td>
-      <td>
+     <td> 
          <form action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+               <input id="children" class="mdl-textfield__input" type="text" rows= "3" id="text7" ></textarea>
+               <label class="mdl-textfield__label" for="text7">number of children...</label>
+            </div>
+          </form>
+	  </td>
+      <td> 
+         <form action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+               <input id="infant" class="mdl-textfield__input" type="text" rows= "3" id="text7" ></textarea>
+               <label class="mdl-textfield__label" for="text7">number of infants...</label>
+            </div>
+          </form>
+	  </td>
+         <!--<form action="#">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                <label class="mdl-button mdl-js-button mdl-button--icon" for="text8">
                   <i class="material-icons">search</i>
@@ -174,12 +180,59 @@
                      <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
                </div>
             </div>
-          </form>
-	  </td>
+          </form>-->
+	 
       <td> </td>
       </tr>
    </table>   
 
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th id="outbound_leg" class="mdl-data-table__cell--non-numeric">Outbound Leg</th>
+      <th id="inbound_leg">Inbound Leg</th>
+      <th id="price_of">Price $USD</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr><td><ul class="demo-list-item mdl-list">
+  <li id="id_outbound" class="mdl-list__item">
+      Id:
+  </li>
+  <li id="origin_station_outbound" class="mdl-list__item">
+      Origin Station:
+  </li>
+  <li id="destination_station_outbound" class="mdl-list__item">
+      Destination Station:
+  </li>
+</ul></td>
+
+<td><ul class="demo-list-item mdl-list">
+  <li id="id_inbound" class="mdl-list__item">
+      Id:
+  </li>
+  <li id="origin_station_inbound" class="mdl-list__item">
+      Origin Station:
+  </li>
+  <li id="destination_station_inbound" class="mdl-list__item">
+      Destination Station:
+  </li>
+</ul></td>
+
+<td><ul class="demo-list-item mdl-list">
+  <li id="info_price" class="mdl-list__item">
+      Price:
+  </li>
+</ul></td></tr>
+
+
+    <!--<tr>
+      <td class="mdl-data-table__cell--non-numeric">Id:</td>
+      <td>hhhhh</td>
+      <td>jjjjjj</td>
+    </tr>-->
+  </tbody>
+</table>
 
 
         <!-- <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
