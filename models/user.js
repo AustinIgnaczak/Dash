@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes){
                 fields: [sequelize.fn('lower', sequelize.col('username'))]
             }
         },
-		password: DataTypes.STRING,
-		{
-			classMethods: {
-				associate: function(models){
-					User.hasOne(models.Info,{
-						onDelete: "cascade"
-					});
-				}
+		password: DataTypes.STRING
+	},
+	{
+		classMethods: {
+			associate: function(models){
+				User.hasOne(models.Info,{
+					onDelete: "cascade"
+				});
 			}
 		}
 	});
