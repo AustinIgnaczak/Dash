@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -223,5 +224,18 @@
       </div>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $.get('/api/user')
+        .then(function(data){
+          console.log(data);
+        })
+        .fail(function(error){
+          alert('something is wrong')
+        });
+
+      });
+    </script>
   </body>
 </html>
