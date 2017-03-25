@@ -30,8 +30,7 @@ module.exports = function(app){
 				}).catch(function (err) {
 				  // Transaction has been rolled back
 				  // err is whatever rejected the promise chain returned to the transaction callback
-				  // res.send(err);
-				  res.send(500);
+				  res.send(500, err.errors[0].message);
 				});
 			});
 		});
@@ -44,13 +43,11 @@ module.exports = function(app){
 			bcrypt.compare(req.body.password, dbUser.password, function(err, result) {
 				if(result) {
 					console.log('authorized');
-					res.send('authorized');
 					req.session.user = dbUser.dataValues;
-					//we need to redirect us to our page now
+					res.send(200);
 				} else {
 					console.log("not an authorized user");
-					res.send('not authorized');
-					//flash warning?
+					res.send(500);
 				}
 			});
 		});
