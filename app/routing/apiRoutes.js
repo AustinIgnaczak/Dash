@@ -53,4 +53,9 @@ module.exports = function(app){
 		});
 	});
 
+	app.get('/api/user', function(req, res){
+		res.locals.user = req.session.user;
+		res.send(res.locals.user);
+	});
+
 };
