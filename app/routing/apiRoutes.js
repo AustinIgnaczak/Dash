@@ -1,5 +1,6 @@
 var bcrypt = require("bcrypt");
 var db = require("../../models");
+var path = require("path");
 
 module.exports = function(app){
 
@@ -25,11 +26,12 @@ module.exports = function(app){
 				}).then(function (result) {
 				  // Transaction has been committed
 				  // result is whatever the result of the promise chain returned to the transaction callback
-				  res.redirect('/');
+				  res.send(200);
 				}).catch(function (err) {
 				  // Transaction has been rolled back
 				  // err is whatever rejected the promise chain returned to the transaction callback
-				  res.send(err);
+				  // res.send(err);
+				  res.send(500);
 				});
 			});
 		});
