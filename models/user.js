@@ -16,6 +16,9 @@ module.exports = function(sequelize, DataTypes){
 				User.hasOne(models.Info,{
 					onDelete: "cascade"
 				});
+				User.hasMany(models.Adventure,{
+					onDelete: "cascade"
+				});
 			}
 		}
 	});

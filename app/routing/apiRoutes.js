@@ -36,6 +36,18 @@ module.exports = function(app){
 		});
 	});
 
+	app.post('/api/test', function(req, res){
+		db.Adventure.create({
+			test: req.body.test,
+			test2: req.body.test2,
+			UserId: req.body.id
+		}).then(function(dbAdventure){
+			res.send('created');
+		}).catch(function(err){
+			res.send(500);
+		});
+	});
+
 	app.post('/api/login', function(req, res){
 		db.User.findOne({
 			where: {username: req.body.username}
@@ -44,6 +56,7 @@ module.exports = function(app){
 				if(result) {
 					console.log('authorized');
 					req.session.user = dbUser.dataValues;
+					console.log(req.session.user);
 					res.send(200);
 				} else {
 					console.log("not an authorized user");
