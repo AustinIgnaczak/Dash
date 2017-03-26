@@ -16,6 +16,8 @@ module.exports = function(app){
 	app.get('/adventure', function(req, res) {
 	  if (req.session && req.session.user) { // Check if session exists
 	    res.sendFile(path.join(__dirname,'/../public/', "adventure.html"));
+	  } else{
+	  	res.sendFile(path.join(__dirname,'/../public/', "createlogin.html"));
 	  }
 	});
 };
