@@ -227,10 +227,14 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
+        var userData = {};
+
         $.get('/api/user')
         .then(function(data){
           //Just console logging the user data for now, we can do whatever we need with it
           console.log(data);
+          userData = data;
+          $.post('/api/test', userData);
         })
         .fail(function(error){
           alert('something is wrong')
