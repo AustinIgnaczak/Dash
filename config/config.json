@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "Ignaczak8",
     "database": "test",
     "host": "127.0.0.1",
-    "port": "8889",
+    "port": "3306",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "Ignaczak8",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "Ignaczak8",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
