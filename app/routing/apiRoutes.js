@@ -37,18 +37,6 @@ module.exports = function(app){
 		});
 	});
 
-	app.post('/api/test', function(req, res){
-		db.Adventure.create({
-			test: req.body.test,
-			test2: req.body.test2,
-			UserId: req.body.id
-		}).then(function(dbAdventure){
-			res.send('created');
-		}).catch(function(err){
-			res.send(500);
-		});
-	});
-
 	app.post('/api/login', function(req, res){
 		db.User.findOne({
 			where: {username: req.body.username}
@@ -72,8 +60,4 @@ module.exports = function(app){
 		res.send(res.locals.user);
 	});
 	
-	app.get('/api/adventure', function(req, res){
-
-
-	});
 };
