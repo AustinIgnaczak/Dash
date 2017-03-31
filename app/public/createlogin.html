@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
     #view-source {
@@ -41,9 +42,9 @@
           <!-- Navigation -->
           <div class="dash-navigation-container">
             <nav class="dash-navigation mdl-navigation">
-               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Home</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="createlogin.html">Login/Create Account</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="adventure.html">Your Adventure</a>
+               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/">Home</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/createlogin">Login/Create Account</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="/adventure">Your Adventure</a>
             
             
             </nav>
@@ -88,7 +89,7 @@
                                 </div></div>
                                 <div class="col-lg-6">
                                 <div id="success" class="flight-button"></div>
-                                <button type="submit" class="btn btn-xl">Sign-In</button>
+                                <button type="submit" class="btn btn-xl" id="login-submit">Sign-In</button>
     <section id="create_login">
           <div class="container">
               <div class="row">
@@ -96,29 +97,33 @@
                       <h2 class="section-heading">Create Login</h2>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Provide First Name" id="outbound" required data-validation-required-message="Please enter your first name.">
+                                    <input type="tel" id="first" class="form-control" placeholder="Provide First Name" required data-validation-required-message="Please enter your first name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Provide Last Name" id="inbound" required data-validation-required-message="Please enter your last name.">
+                                    <input type="tel" id="last" class="form-control" placeholder="Provide Last Name" required data-validation-required-message="Please enter your last name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                  </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Create Username" id="outbound" required data-validation-required-message="Please enter your first name.">
+                                    <input type="tel" id="register-username" class="form-control" placeholder="Create Username" required data-validation-required-message="Please enter your first name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Create Password" id="inbound" required data-validation-required-message="Please enter your last name.">
+                                    <input type="tel" id="register-password" class="form-control" placeholder="Create Password" required data-validation-required-message="Please enter your last name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="email" class="form-control" placeholder="Enter Email" required data-validation-required-message="Please enter your last name.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                  </div>
                                  <div class="col-lg-6">
                                 <div id="success" class="flight-button"></div>
-                                <button type="submit" class="btn btn-xl">Submit</button>
+                                <button type="submit" class="btn btn-xl" id="register-submit">Submit</button>
                                
                                <div class="row">
-                            <div class="col-lg-12">
+<!--                             <div class="col-lg-12">
                                 <div class="col-md-4 form-group">
                                     <input type="tel" class="form-control" placeholder="number of adults" id="adults" required data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
@@ -131,10 +136,10 @@
                                     <input type="tel" class="form-control" placeholder="number of infants" id="infants" required data-validation-required-message="Please enter your phone number.">
                                     <p class="help-block text-danger"></p>
                                 </div>
-                            </div>
+                            </div> -->
                                </div>
                             <div class="clearfix"></div>
-                            <div class="col-lg-12 text-center">
+<!--                             <div class="col-lg-12 text-center">
                             <div class="col-lg-6">
                                 <div id="success" class="flight-button"></div>
                                 <button type="submit" class="btn btn-xl">find my flight</button>
@@ -143,7 +148,7 @@
                                 <div id="success" class="flight-button"></div>
                                 <button type="submit" class="btn btn-xl">feeling lucky</button>
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                     
                 </div>
@@ -152,7 +157,7 @@
     </section>
 <!-- fights available and information-->
 
-    <div class="panel panel-default">
+<!--     <div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">Flight Information</h4>
 					</div>
@@ -188,7 +193,7 @@
 						</form>
 
 					</div>
-				</div>
+				</div> -->
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script type="text/javascript">
 
@@ -197,20 +202,58 @@
         $("#login-submit").on('click', function(event){
           event.preventDefault();
 
-          var info = [];
-          var username = $("#username").val().trim();
-          var password = $("#password").val().trim();
-          var first = $("#first").val().trim();
-          var last = $("#last").val().trim();
-          var email = $("#email").val().trim();
+          var username = $("#username").val();
+          var password = $("#password").val();
 
-          info.push(username);
-          info.push(password);
-          info.push(first);
-          info.push(last);
-          info.push(email);
+          var info = {
+            username: username,
+            password: password
+          }
+
+          $.post('/api/login', info)
+          .then(function(){
+            window.location = '/adventure';
+          })
+          .fail(function(err){
+            alert ('Wrong username or password');
+          });
+
+        });
+
+        $("#register-submit").on('click', function(event){
+          event.preventDefault();
+
+          var username = $("#register-username").val();
+          var password = $("#register-password").val();
+          var first = $("#first").val();
+          var last = $("#last").val();
+          var email = $("#email").val();
+
+          var info = {
+            username: username,
+            password: password,
+            first: first,
+            last: last,
+            email: email
+          }
 
           console.log(info);
+
+          $.post('/api/register', info)
+          .then(function(){
+            window.location = '/';
+          })
+          .fail(function(err){
+
+            alert (JSON.stringify(err.responseText));
+
+            $("#register-username").val("CREATE USERNAME...");
+            $("#register-password").val("CREATE PASSWORD...");
+            $("#first").val("PROVIDE FIRST NAME...");
+            $("#last").val("PROVE LAST NAME...");
+            $("#email").val("PROVIDE EMAIL...");
+            
+          });
 
         });
 
