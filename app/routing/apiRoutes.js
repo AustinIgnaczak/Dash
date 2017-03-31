@@ -2,7 +2,6 @@ var bcrypt = require("bcrypt");
 var db = require("../../models");
 var path = require("path");
 var util = require('util');
-var skyScanner = require("../services/skyScannerFunctions.js")
 
 module.exports = function(app){	
 
@@ -72,14 +71,9 @@ module.exports = function(app){
 		res.locals.user = req.session.user;
 		res.send(res.locals.user);
 	});
+	
 	app.get('/api/adventure', function(req, res){
-		var q = req.query
-		skyScanner.setApiKey('prtl6749387986743898559646983194');
 
-		skyScanner.search(q.depart, q.destination, q.outbound, q.inbound, q.adult, q.children, q.infant, true).then(function (data) {
-    		res.send(util.inspect(data[0], false, 99999));
-    		console.log(util.inspect(data[0], false, 99999));
-		});
 
 	});
 };
