@@ -9,11 +9,12 @@
     <title>dash</title>
 
     <!-- Page styles -->
+     <link href="bootstrap/bootstrap.css" rel="stylesheet">
+     <link href="bootstrap/contact.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
     #view-source {
       position: fixed;
@@ -25,6 +26,11 @@
       z-index: 900;
     }
     </style>
+    <script langauage="javascript">
+      function showMessage(value){
+         document.getElementById("message").innerHTML = value;
+      }	  
+   </script>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-desktop-drawer-button">
@@ -41,9 +47,8 @@
           <div class="dash-navigation-container">
             <nav class="dash-navigation mdl-navigation">
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Home</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="createlogin.html">Create Account</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="signin.html">My Account</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="adventure.html">New Adventure</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="createlogin.html">Login/Create Account</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="adventure.html">Your Adventure</a>
             
             </nav>
           </div>
@@ -59,148 +64,123 @@
         </span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="index.html">Home</a>
-          <a class="mdl-navigation__link" href="createlogin.html">Create Account</a>
-          <a class="mdl-navigation__link" href="signin.html">My Account</a>
-          <a class="mdl-navigation__link" href="adventure.html">New Adventure</a>
+          <a class="mdl-navigation__link" href="createlogin.html">Login/Create Account</a>
+          <a class="mdl-navigation__link" href="adventure.html">Your Adventure</a>
           </div>
 
-      <div class="dash-content mdl-layout__content">
-        <a name="top"></a>
-        <div class="dash-be-together-section mdl-typography--text-center">
-          
+
+         <!-- Contact Section -->
+    <section id="find_flight">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Find Your Flight</h2>
+                    <h3 class="section-subheading">tell us where you want to go!</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="find_flight_form" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="where do you want to go?" id="destination" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="what is your budget?" id="budget" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div></div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="leaving: 01/01/2017" id="outbound" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="returning: 01/01/2017" id="inbound" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                 </div>
+                               
+                               <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-md-4 form-group">
+                                    <input type="tel" class="form-control" placeholder="number of adults" id="adults" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <input type="tel" class="form-control" placeholder="number of children" id="children" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <input type="tel" class="form-control" placeholder="number of infants" id="infants" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                               </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                            <div class="col-lg-6">
+                                <div id="find-flight" class="flight-button"></div>
+                                <button type="submit" class="btn btn-xl">find my flight</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="feeling-lucky" class="flight-button"></div>
+                                <button type="submit" class="btn btn-xl">feeling lucky</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
         </div>
+    </section>
+<!-- fights available and information-->
 
-
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-  <thead>
-    <tr>
-      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
-      <th class="mdl-data-table__cell--non-numeric">Component</th>
-      <th>Quantity</th>
-      <th>Unit Cost</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <!-- Row 1 -->
-    <tr>
-      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
-      <td class="mdl-data-table__cell--non-numeric">Keyboard(backlit)</td>
-      <td>10</td>
-      <td>$50</td>
-    </tr>
-    
-    <!-- Row 2 -->
-    <tr>
-      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
-      <td class="mdl-data-table__cell--non-numeric">Mouse(wireless)</td>
-      <td>22</td>
-      <td>$25</td>
-    </tr>
-    
-    <!-- Row 3 -->
-    <tr>
-      <!-- class "mdl-data-table__cell--non-numeric", align values to left -->
-      <td class="mdl-data-table__cell--non-numeric">LED Display(1080p)</td>
-      <td>56</td>
-      <td>$113</td>
-    </tr>
-    
-  </tbody>
-</table>
-
-
-        <div class="dash-screen-section mdl-typography--text-center">
-          <a name="screens"></a>
-          <div class="mdl-typography--display-1-color-contrast">Wanna Get Away? Have A Tight Budget?</div>
-          <div class="mdl-typography--display-1-color-contrast"><span style="font-size: 24px">Let Us Help You Start Your Adventure!</span></div>
-       <div class="container">
-    <div class="section">
-          <div class="dash-customized-section-image"></div>
-        </div><a class="dash-image-link" href="createlogin.html"><button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-          START YOUR ADVENTURE NOW!</button></a><br><br><br><br><br>
-
-<div class="dash-section-image2"></div>
-
-        
-        
-        <div class="dash-more-section">
-
-          <div class="dash-section-title mdl-typography--display-1-color-contrast">WHAT YOU GET WITH DASH:</div>
-          <div class="dash-card-container mdl-grid">
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-bed mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/wanderlust.jpg">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">We work within your budget and specifications.</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">Getting away on a budget can be hard. We take your budget and help you plan an adventure that rocks without killing your bank account. </span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="dash-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="createlogin.html">
-                  GET STARTED NOW
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
+   <section id="flight_info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1><span style="color:dimgrey">Pick Your Flight</span></h1>
+                    
+                </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12">
 
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-bed mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/Airplane2.jpg">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">We find the best flights based on your budget.</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">We search our internal airlines database to find you the cheapest flights available! Pick your destination or let us find one for you! </span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="dash-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="createlogin.html">
-                  FIND YOUR FLIGHT
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
+						<form role="form">
 
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-bed mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/travel1.jpg">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Have a destination in mind, or up for anywhere?</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">Pick a specific locatin or let us find something for you! If you are feeling lucky, you just might make out with a grand adventure!</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="dash-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="createlogin.html">
-                  PICK A DESTINATION
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
+							<div class="form-group">
+								<label for="">Inbound Leg</label>
+								<input type="text" class="form-control" id="inbound_leg">
+							</div>
 
-            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-bed mdl-card mdl-shadow--3dp">
-              <div class="mdl-card__media">
-                <img src="images/event.jpg">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Here is what is going on where you are headed!</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <span class="mdl-typography--font-light mdl-typography--subhead">Once you have your destination, we can show you all the events, concerts and to-dos in that area so you will have a fun-packed adventure!</span>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="dash-link mdl-button mdl-js-button mdl-typography--text-uppercase" href="createlogin.html">
-                  FIND AN ADVENTURE
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
+							<div class="form-group">
+								<label for="">Price $USD</label>
+								<input type="text" class="form-control" id="price_of">
+							</div>
+
+							<div class="form-group">
+								<label for="">Id</label>
+								<input type="text" class="form-control" id="id_outbound">
+							</div>
+
+							<div class="form-group">
+								<label for="">Origin Station Outbound</label>
+								<input type="text" class="form-control" id="origin_station_outbound">
+							</div>
+
+                            <div class="form-group">
+								<label for="">Outbound Destination Station:</label>
+								<input type="text" class="form-control" id="destination_station_outbound">
+							</div>
+
+						</form>
+
+					</div>
+				</div></div></section>
+
 
         <footer class="dash-footer mdl-mega-footer">
           <div class="mdl-mega-footer--top-section">
@@ -224,23 +204,5 @@
       </div>
     </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-
-        var userData = {};
-
-        $.get('/api/user')
-        .then(function(data){
-          //Just console logging the user data for now, we can do whatever we need with it
-          console.log(data);
-          userData = data;
-          $.post('/api/test', userData);
-        })
-        .fail(function(error){
-          alert('something is wrong')
-        });
-
-      });
-    </script>
   </body>
 </html>

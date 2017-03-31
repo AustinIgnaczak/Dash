@@ -13,23 +13,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
-
-      #view-source {
-        position: fixed;
-        display: block;
-        right: 0;
-        bottom: 0;
-        margin-right: 40px;
-        margin-bottom: 40px;
-        z-index: 900;
-      }
-
-      .mdl-textfield__label, .mdl-textfield__input {
-        color: blue;
-      }
-
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
     </style>
   </head>
   <body>
@@ -46,9 +39,11 @@
           <!-- Navigation -->
           <div class="dash-navigation-container">
             <nav class="dash-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Create Account</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">My Account</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">New Adventure</a>
+               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Home</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="createlogin.html">Login/Create Account</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="adventure.html">Your Adventure</a>
+            
+            
             </nav>
           </div>
           <span class="dash-mobile-title mdl-layout-title">
@@ -62,14 +57,12 @@
           <img class="dash-logo-image" src="images/DashLogo_white.png">
         </span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Create Account</a>
-          <a class="mdl-navigation__link" href="">My Account</a>
-          <a class="mdl-navigation__link" href="">New Adventure</a>
-        </nav>
-      </div>
+          <a class="mdl-navigation__link" href="index.html">Home</a>
+          <a class="mdl-navigation__link" href="createlogin.html">Login/Create Account</a>
+          <a class="mdl-navigation__link" href="adventure.html">Your Adventure</a>
+          </div>
 
       <div class="dash-content mdl-layout__content">
-
         <a name="top"></a>
         <div class="dash-be-together-section mdl-typography--text-center">
           <div class="logo-font dash-slogan">discovering adventure. saving hay.</div>
@@ -78,34 +71,30 @@
 
           <form action="#">
       			<div class="mdl-textfield mdl-js-textfield">
-          		<input class="mdl-textfield__input" type="text" id="username">
-          		<label class="mdl-textfield__label" for="username">CREATE USERNAME...</label>
+        		<input class="mdl-textfield__input" type="text" id="sample1">
+        		<label class="mdl-textfield__label" for="sample1" style="color:blue">CREATE USERNAME...</label>
       			</div>
       			<div class="mdl-textfield mdl-js-textfield">
-        		  <input class="mdl-textfield__input" type="text" id="password">
-        		  <label class="mdl-textfield__label" for="password">CREATE PASSWORD...</label>
+        		<input class="mdl-textfield__input" type="text" id="sample1">
+        		<label class="mdl-textfield__label" for="sample1" style="color:blue">CREATE PASSWORD...</label>
       			</div>
       			<BR></BR>
       			<div class="mdl-textfield mdl-js-textfield">
-        		  <input class="mdl-textfield__input" type="text" id="first">
-        		  <label class="mdl-textfield__label" for="first">PROVIDE FIRST NAME...</label>
+        		<input class="mdl-textfield__input" type="text" id="sample1">
+        		<label class="mdl-textfield__label" for="sample1" style="color:blue">PROVIDE FIRST NAME...</label>
       			</div>
       			<div class="mdl-textfield mdl-js-textfield">
-        		  <input class="mdl-textfield__input" type="text" id="last">
-        		  <label class="mdl-textfield__label" for="last">PROVIDE LAST NAME...</label>
+        		<input class="mdl-textfield__input" type="text" id="sample1">
+        		<label class="mdl-textfield__label" for="sample1" style="color:blue">PROVIDE LAST NAME...</label>
       			</div>
-            <div class="mdl-textfield mdl-js-textfield">
-              <input class="mdl-textfield__input" type="text" id="email">
-              <label class="mdl-textfield__label" for="email">PROVIDE EMAIL...</label>
-            </div>
             <button id="login-submit" class="btn btn-lg pull-right">Submit!</button>
     		  </form>
 
-          </div>
         </div>
-
       </div>
 
+
+        </div>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script type="text/javascript">
 
@@ -114,37 +103,20 @@
         $("#login-submit").on('click', function(event){
           event.preventDefault();
 
-          var username = $("#username").val();
-          var password = $("#password").val();
-          var first = $("#first").val();
-          var last = $("#last").val();
-          var email = $("#email").val();
+          var info = [];
+          var username = $("#username").val().trim();
+          var password = $("#password").val().trim();
+          var first = $("#first").val().trim();
+          var last = $("#last").val().trim();
+          var email = $("#email").val().trim();
 
-          var info = {
-            username: username,
-            password: password,
-            first: first,
-            last: last,
-            email: email
-          };
+          info.push(username);
+          info.push(password);
+          info.push(first);
+          info.push(last);
+          info.push(email);
 
           console.log(info);
-
-          $.post('/api/register', info)
-          .then(function(){
-            window.location = '/';
-          })
-          .fail(function(err){
-
-            alert (JSON.stringify(err.responseText));
-
-            $("#username").val("CREATE USERNAME...");
-            $("#password").val("CREATE PASSWORD...");
-            $("#first").val("PROVIDE FIRST NAME...");
-            $("#last").val("PROVE LAST NAME...");
-            $("#email").val("PROVIDE EMAIL...");
-            
-          });
 
         });
 
