@@ -154,6 +154,7 @@
 
               
   <table id="flights" class="table table-striped">
+
     <thead>
       <tr>
         <th>Flight Carrier</th>
@@ -252,11 +253,12 @@ function fillFlights() {
 
 $(document).ready( function() {
   console.log("")
-    $("#flight").html(
-        "<table><tr><td>Carrier: Frontier</td>" +
-        "<td>Price: $104 </td></tr>" +
-        "<tr><td>Date: April 24th, 2017 - April 29th, 2017</td>" +
-        "<td>Here are some local events!</td></tr></table>");
+    $("#flight_info").html(
+        "<table id='flight_info' class='table table-striped'>" +
+        "<thead><tr><th>Flight Carrier</th><th>Price</th><th>Date of Flight</th></tr></thead>" +
+        "<tbody><tr><td>Frontier</td><td>$104</td><td>April 24th - April 29th</td></tr>" +
+              "<tr><td>American</td><td>$160</td><td>April 24th - April 29th</td></tr>"+
+              "<tr><td>United</td><td>$243</td><td>April 24th - April 29th</td></tr>");
 });
 
 
