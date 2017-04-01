@@ -190,6 +190,10 @@ a img{
   color: #ffffff;
   font-weight: 500;
 }
+.flight-btn{
+  width: 400px;
+  height: 60px;
+}
 
 .dash-slogan {
   font-size: 60px;
