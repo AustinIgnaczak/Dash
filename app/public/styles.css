@@ -401,6 +401,18 @@ a img{
     padding-bottom: 24px;
   }
 
+  dash-section-image2.dash-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .dash-more-section .dash-section-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+  }
+
 .dash-card-container {
 }
 
