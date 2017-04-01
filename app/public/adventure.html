@@ -146,10 +146,10 @@
     </section>
 <!-- fights available and information-->
 
-   <section id="flight_info">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 center">
+   <div id='flight_info'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-lg-12 center'>
                     <h2><span style="color:dimgrey">Flight Information</span></h1>
 
               
@@ -181,13 +181,13 @@
     </tbody>
   </table></div></div>
   
-  
-  <div class="row">
-    <div class="col-lg-12 center">
+  <div></div>
+  <div id= 'eventss' class='row'>
+    <div class='col-lg-12 center'>
 
-        <h2><span style="color:dimgrey">Events In The Area</span></h1>
+        <h2><span style='color:dimgrey'>Events In The Area</span></h1>
 
-        <table id="event_info" class="table table-striped form-group">
+        <table id='event_info' class='table table-striped form-group'>
          <thead>
       <tr>
         <th>Event Name</th>
@@ -219,7 +219,7 @@
          
           <div class="flights" id="flight"></div>
           <div class="shopping" id="shopping-items"></div>
-				</div></div></section>
+				</div></div></div>
 
 
         <footer class="dash-footer mdl-mega-footer">
@@ -254,11 +254,18 @@ function fillFlights() {
 $(document).ready( function() {
   console.log("")
     $("#flight_info").html(
+         "<section id='flight_info'><div class='container'><div class='row'><div class='col-lg-12 center'><h2><span style='color:dimgrey'>Flight Information</span></h1>" +
+
         "<table id='flight_info' class='table table-striped'>" +
         "<thead><tr><th>Flight Carrier</th><th>Price</th><th>Date of Flight</th></tr></thead>" +
         "<tbody><tr><td>Frontier</td><td>$104</td><td>April 24th - April 29th</td></tr>" +
               "<tr><td>American</td><td>$160</td><td>April 24th - April 29th</td></tr>"+
-              "<tr><td>United</td><td>$243</td><td>April 24th - April 29th</td></tr>");
+              "<tr><td>United</td><td>$243</td><td>April 24th - April 29th</td></tr>" );
+    $("#eventss").html(
+     "<div id='eventss' class='row'><div class='col-lg-12 center'><h2><span style='color:dimgrey'>Events In The Area</span></h1><table id='event_info' class='table table-striped form-group'><thead><tr><th>Event Name</th><th>Event City</th><th>Start Date</th></tr></thead><tbody><tr><td>John</td><td>Doe</td><td>john@example.com</td></tr><tr><td>Mary</td><td>Moe</td><td>mary@example.com</td></tr><tr><td>July</td><td>Dooley</td><td>july@example.com</td></tr></tbody></table></div>"
+
+
+  );
 });
 
 
@@ -297,18 +304,29 @@ $(document).ready( function() {
     };
 
    EVDB.API.call("/events/search", oArgs, function(oData) {
-    setTimeout(function(){
+
     console.log(oData.events.event[0])
-  },2000);
     var content = "<table>"
 for(i=0; i<5; i++){
     content += '<tr><td>' + oData.events.event[i].title + " " + "City: " +oData.events.event[i].city_name + '</td></tr>' 
     // + "<img src="+oData.events.event[0].image.medium.url+">"+"</img>";
+    var event1 = oData.events.event[0].title
+    var event2 = oData.events.event[1].title
+    var event3 = oData.events.event[2].title
+    var event4 = oData.events.event[3].title
+    var event5 = oData.events.event[4].title
 
+
+console.log(event1)
 }
-content += "</table>"
 
-$('#shopping-items').append(content);
+
+
+
+
+
+
+
 
       // Note: this relies on the custom toString() methods below
 
