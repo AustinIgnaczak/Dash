@@ -195,6 +195,16 @@ a img{
   height: 60px;
 }
 
+.sign-in-btn{
+  width: 200px;
+  height: 60px;
+}
+
+.sign-in-text{
+  color:#0095d7;
+  font-weight: bold;
+}
+
 .dash-slogan {
   font-size: 60px;
   padding-top: 300px;

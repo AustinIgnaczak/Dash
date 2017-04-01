@@ -610,6 +610,68 @@ section#find_flight :-ms-input-placeholder {
 section#find_flight .text-danger {
   color: #e74c3c;
 }
+
+section#create_login {
+  background-color: #0095d7;
+  background-image: url('../images/map-image.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+section#create_login .section-heading {
+  color: white;
+}
+section#create_login .form-group {
+  margin-bottom: 25px;
+}
+section#create_login .form-group input,
+section#create_login .form-group textarea {
+  padding: 20px;
+}
+section#create_login .form-group input.form-control {
+  height: auto;
+}
+section#create_login .form-group textarea.form-control {
+  height: 236px;
+}
+section#create_login .form-control:focus {
+  border-color: #5c5656;
+  box-shadow: none;
+}
+section#create_login ::-webkit-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee;
+}
+section#create_login :-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee;
+}
+section#create_login ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee;
+}
+section#create_login :-ms-input-placeholder {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eeeeee;
+}
+section#create_login .text-danger {
+  color: #e74c3c;
+}
+
+
+
+
+
 footer {
   padding: 25px 0;
   text-align: center;
